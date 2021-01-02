@@ -31,9 +31,9 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports = sports.compact!
+  sports.compact!
   # 以下は変更しないで下さい
-  p sports.compact
+  p sports
 
 end
 
@@ -51,14 +51,14 @@ def q6
 
   # 以下に回答を記載
 
-    p numbers2 = numbers1.map{|x| x * 10}
+    p numbers2 = numbers1.map{|num| num * 10}
 end
 
 def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  array = array.map(&:to_i)
+  array.map!(&:to_i)
   # 以下は変更しないで下さい
   p array
 end
@@ -67,7 +67,7 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages = programming_languages.map(&:capitalize)
+  programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
 
   # 以下は変更しないで下さい
@@ -89,6 +89,9 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
+   foods.map{|names| puts names.include?("うに") ? "好物です" : "まぁまぁ好きです" }
+
+# 条件式(true or false) ? trueの時に行いたい処理 : falseの時に行いたい処理
 
 end
 
@@ -96,14 +99,22 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  puts "ユーザの趣味一覧"
+  sports.flatten.each.with_index(1) do |names,i|
+  puts "No#{i} #{names}"
 
+  end
+
+#ユーザーの趣味一覧
+#No1 サッカー
+#No2 バスケ
 end
 
 def q12
   data = { user: { name: "satou", age: 33 } }
-
+## Q12. 次のハッシュから `name` の値を出力して下さい。
   # 以下に回答を記載
-
+  puts data[:user][:name]
 end
 
 def q13
