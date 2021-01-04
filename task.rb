@@ -89,8 +89,9 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-   foods.map{|names| puts names.include?("うに") ? "好物です" : "まぁまぁ好きです" }
-
+   foods.map do
+     |fish| puts fish.include?("うに") ? "好物です" : "まぁまぁ好きです"
+   end
 # 条件式(true or false) ? trueの時に行いたい処理 : falseの時に行いたい処理
 
 end
@@ -100,7 +101,7 @@ def q11
 
   # 以下に回答を記載
   puts "ユーザの趣味一覧"
-  sports.flatten.each.with_index(1) do |names,i|
+  sports.flatten.uniq.each.with_index(1) do |names,i|
   puts "No#{i} #{names}"
 
   end
@@ -122,25 +123,47 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+  user_data[:age] = update_data[:age]
+  user_data[:address] = update_data[:address]
+#  user_data[:age][:address] = update_data[:age][:address]のように複数
+#  のキー指定して値を変更したかったですがうまくいかず・・・。
+
+  puts user_data[:age]
+  puts user_data[:address]
 
 end
 
 def q14
+
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
-
   # 以下に回答を記載
-
+  p data.keys
 end
 
 def q15
+
+  ## Q15. `age` というキーが含まれている場合は `OK` ，含まれていない場合は `NG` という文字列が出力されるコードを書いて下さい。
+
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
-
+=begin
+  見辛い上に無駄なコードが多いので却下
+    data1.each_key do
+      |key| puts key == :age ? "OK" : "NG"
+    end
+    data2.each_key do
+      |key| puts key == :age ? "OK" : "NG"
+    end
+=end
+    puts data1.key?(:age) ? "OK" : "NG"
+    puts data2.key?(:age) ? "OK" : "NG"
 end
 
 def q16
+  ## Q16. 次の配列の各要素について，「私の名前は〜です。年齢は〜歳です。」と表示して下さい。
+
   users = [
     { name: "satou", age: 22 },
     { name: "yamada", age: 12 },
@@ -149,7 +172,10 @@ def q16
   ]
 
   # 以下に回答を記載
+  users.each do |user|
+    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
 
+  end
 end
 
 class UserQ17
