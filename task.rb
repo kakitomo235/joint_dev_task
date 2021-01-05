@@ -89,8 +89,8 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-   foods.map do
-     |fish| puts fish.include?("うに") ? "好物です" : "まぁまぁ好きです"
+   foods.map do |fish|
+      puts fish.include?("うに") ? "好物です" : "まぁまぁ好きです"
    end
 # 条件式(true or false) ? trueの時に行いたい処理 : falseの時に行いたい処理
 
@@ -128,8 +128,7 @@ def q13
 #  user_data[:age][:address] = update_data[:age][:address]のように複数
 #  のキー指定して値を変更したかったですがうまくいかず・・・。
 
-  puts user_data[:age]
-  puts user_data[:address]
+puts user_data.update(update_data)
 
 end
 
