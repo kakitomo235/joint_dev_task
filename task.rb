@@ -178,11 +178,22 @@ def q16
 end
 
 class UserQ17
-  # 以下に回答を記載
+  # 以下に回答
+  def initialize(name:,age:,gender:)
+      @name = name
+      @age = age
+      @gender = gender
+  end
+
+
+  def info
+    puts "名前：#{@name} \n年齢：#{@age}\n性別：#{@gender}"
+  end
 
 end
 
 def q17
+  
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
   user1 = UserQ17.new(name: "神里", age: 32, gender: "男")
   user2 = UserQ17.new(name: "あじー", age: 32, gender: "男")
@@ -193,7 +204,17 @@ def q17
 end
 
 class UserQ18
-  # 以下に回答を記載
+ 
+  def initialize(name:,age:)
+      @name = name
+      @age = age
+  
+  end
+
+
+  def introduce
+      puts 20 >= @age ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜，#{@name}です！！！"
+  end
 
 end
 
@@ -209,9 +230,13 @@ end
 class Item
   # 以下を修正して下さい
 
-  def initialize(name)
+  def initialize(name:)
     @name = name
   end
+  def name
+    @name
+  end
+
 end
 
 def q19
@@ -221,12 +246,56 @@ def q19
 end
 
 class UserQ20
-  # 以下に回答を記載
+  def initialize(name:,age:) 
+  @name = name
+  @age = age
+  end
+  def name=(name)
+    @name = name
+  end
 
+  def age=(age)
+    @age = age
+  end
 end
 
 class Zoo
-  # 以下に回答を記載
+
+  def initialize(name:,entry_fee:)
+    @name = name
+    @entry_fee=entry_fee
+
+    end
+
+    def name=(name)
+      @name = name
+    end
+    
+
+  def info_entry_fee(params)
+      @name = params[@name]
+
+
+  puts @names
+=begin
+    case age:
+      年齢区分は，幼児(0〜5歳)，子供(6〜12歳)，成人(13〜64歳)，シニア(65〜120歳)の4パターンとします。（この範囲外の年齢については対処しなくてOKです）
+
+      when 0..5
+        puts "春です"
+      when 6..12
+        puts "夏です"
+      when 13..64
+        puts "秋です"
+      when 65..120
+        puts "冬です"
+      else
+        puts "不正な値です"
+      end
+=end
+
+  end
+
 
 end
 
@@ -243,6 +312,7 @@ def q20
   ]
 
   users.each do |user|
-    zoo.info_entry_fee(user)
-  end
+   zoo.info_entry_fee(user)
+   
+ end
 end
