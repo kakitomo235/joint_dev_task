@@ -187,7 +187,12 @@ class UserQ17
 
 
   def info
-    puts "名前：#{@name} \n年齢：#{@age}\n性別：#{@gender}"
+    puts <<~TEXT
+    名前：#{@name}
+    年齢：#{@age}
+    性別：#{@gender}
+    TEXT
+
   end
 
 end
@@ -213,7 +218,12 @@ class UserQ18
 
 
   def introduce
-      puts 20 >= @age ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜，#{@name}です！！！"
+      if 20 >= @age 
+         puts "こんにちは，#{@name}と申します。宜しくお願いいたします。" 
+      else
+         puts "はいさいまいど〜，#{@name}です！！！"
+      end 
+
   end
 
 end
@@ -223,8 +233,8 @@ def q18
   user1 = UserQ18.new(name: "あじー", age: 32)
   user2 = UserQ18.new(name: "ゆたぼん", age: 10)
 
-  puts user1.introduce
-  puts user2.introduce
+  user1.introduce
+  user2.introduce
 end
 
 class Item
@@ -233,9 +243,8 @@ class Item
   def initialize(name:)
     @name = name
   end
-  def name
-    @name
-  end
+
+  attr_reader :name
 
 end
 
@@ -246,16 +255,11 @@ def q19
 end
 
 class UserQ20
+  attr_reader :name
+  attr_reader :age
   def initialize(name:,age:) 
   @name = name
   @age = age
-  end
-  def name=(name)
-    @name = name
-  end
-
-  def age=(age)
-    @age = age
   end
 end
 
@@ -267,38 +271,22 @@ class Zoo
 
     end
 
-    def name=(name)
-      @name = name
-    end
-    
-
-  def info_entry_fee(params)
-      @name = params[@name]
-
-
-  puts @names
-=begin
-    case age:
-      年齢区分は，幼児(0〜5歳)，子供(6〜12歳)，成人(13〜64歳)，シニア(65〜120歳)の4パターンとします。（この範囲外の年齢については対処しなくてOKです）
+  def info_entry_fee(users)
+      case users.age
 
       when 0..5
-        puts "春です"
+        puts "#{users.name}さんの入場料は#{@entry_fee[:infant]}円です。"
       when 6..12
-        puts "夏です"
+        puts "#{users.name}さんの入場料は#{@entry_fee[:children]}円です。"
       when 13..64
-        puts "秋です"
+        puts "#{users.name}さんの入場料は#{@entry_fee[:adult]}円です。"
       when 65..120
-        puts "冬です"
-      else
-        puts "不正な値です"
-      end
-=end
+        puts "#{users.name}さんの入場料は#{@entry_fee[:senior]}円です。"
 
+      end
   end
 
-
 end
-
 
 def q20
   # ここは変更しないで下さい（動物園・ユーザー情報は変更していただいてOKです）
@@ -310,7 +298,6 @@ def q20
     UserQ20.new(name: "あじー", age: 32),
     UserQ20.new(name: "ぎん", age: 108)
   ]
-
   users.each do |user|
    zoo.info_entry_fee(user)
    
