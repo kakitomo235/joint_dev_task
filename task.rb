@@ -173,7 +173,6 @@ def q16
   # 以下に回答を記載
   users.each do |user|
     puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
-
   end
 end
 
@@ -184,21 +183,16 @@ class UserQ17
       @age = age
       @gender = gender
   end
-
-
   def info
     puts <<~TEXT
     名前：#{@name}
     年齢：#{@age}
     性別：#{@gender}
     TEXT
-
   end
-
 end
 
 def q17
-  
   # ここは変更しないで下さい（ユーザー情報は変更していただいてOKです）
   user1 = UserQ17.new(name: "神里", age: 32, gender: "男")
   user2 = UserQ17.new(name: "あじー", age: 32, gender: "男")
@@ -219,11 +213,10 @@ class UserQ18
 
   def introduce
       if 20 <= @age 
-         puts "こんにちは，#{@name}と申します。宜しくお願いいたします。" 
+        "こんにちは，#{@name}と申します。宜しくお願いいたします。" 
       else
-         puts "はいさいまいど〜，#{@name}です！！！"
+        "はいさいまいど〜，#{@name}です！！！"
       end 
-
   end
 
 end
@@ -232,9 +225,8 @@ def q18
   # ここは変更しないで下さい
   user1 = UserQ18.new(name: "あじー", age: 32)
   user2 = UserQ18.new(name: "ゆたぼん", age: 10)
-
-  user1.introduce
-  user2.introduce
+  puts user1.introduce
+  puts user2.introduce
 end
 
 class Item
@@ -264,13 +256,10 @@ class Zoo
   def initialize(name:,entry_fee:)
     @name = name
     @entry_fee = entry_fee
-
-    end
+  end
 
   def info_entry_fee(user)
-  
     fee = case user.age
-
       when 0..5
         @entry_fee[:infant]
       when 6..12
@@ -279,11 +268,9 @@ class Zoo
         @entry_fee[:adult]
       when 65..120
         @entry_fee[:senior]
-
       end
       puts "#{user.name}さんの入場料金は#{fee}円です。"
   end
-
 end
 
 def q20
@@ -298,6 +285,5 @@ def q20
   ]
   users.each do |user|
    zoo.info_entry_fee(user)
-   
  end
 end
