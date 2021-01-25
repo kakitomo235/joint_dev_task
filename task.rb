@@ -3,38 +3,29 @@
 
 def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
-
   # 以下に回答を記載
   p names << "斎藤"
-
 end
 
 def q2
   array1 = ["dog", "cat", "fish"]
   array2 = ["bird", "bat", "tiger"]
-
   # 以下に回答を記載
   p array = array1 + array2
-
 end
 
 def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
-
   # 以下に回答を記載
   p numbers.count(3)
-
-
 end
 
 def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
-
   # 以下に回答を記載
   sports.compact!
   # 以下は変更しないで下さい
   p sports
-
 end
 
 def q5
@@ -48,15 +39,12 @@ end
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
-
   # 以下に回答を記載
-
     p numbers2 = numbers1.map{|num| num * 10}
 end
 
 def q7
   array = ["1", "2", "3", "4", "5"]
-
   # 以下に回答を記載
   array.map!(&:to_i)
   # 以下は変更しないで下さい
@@ -65,18 +53,15 @@ end
 
 def q8
   programming_languages = %w(ruby php python javascript)
-
   # 以下に回答を記載
   programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
-
   # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
 end
 
 def q9
-
   names = ["田中", "佐藤", "佐々木", "高橋"]
   #以下に回答を記載
   names.each.with_index(1) do |name,i|
@@ -87,24 +72,20 @@ end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
-
   # 以下に回答を記載
    foods.map do |fish|
       puts fish.include?("うに") ? "好物です" : "まぁまぁ好きです"
    end
 # 条件式(true or false) ? trueの時に行いたい処理 : falseの時に行いたい処理
-
 end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
-
   # 以下に回答を記載
   puts "ユーザの趣味一覧"
   sports.flatten.uniq.each.with_index(1) do |names,i|
   puts "No#{i} #{names}"
-
-  end
+end
 
 #ユーザーの趣味一覧
 #No1 サッカー
@@ -204,12 +185,10 @@ def q17
 end
 
 class UserQ18
- 
   def initialize(name:,age:)
       @name = name
       @age = age
   end
-
 
   def introduce
       if 20 <= @age 
@@ -218,7 +197,6 @@ class UserQ18
         "はいさいまいど〜，#{@name}です！！！"
       end 
   end
-
 end
 
 def q18
